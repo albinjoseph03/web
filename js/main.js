@@ -33,9 +33,12 @@ Menu
 
 	function initEvents() {
 		openbtn.addEventListener( 'click', toggleMenu );
+		classie.add( bodyEl, 'show-menu' )
+		isOpen = true;
 		if( closebtn ) {
 			closebtn.addEventListener( 'click', toggleMenu );
 		}
+		openbtn = document.getElementById( 'open-button' )
 
 		/* close the menu element if the target it´s not the menu element or one of its descendants..
 		content.addEventListener( 'click', function(ev) {
