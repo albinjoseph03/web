@@ -1,7 +1,6 @@
 $(window).load(function(){
-	$('#preloader').fadeOut('slow',function(){$(this).remove();});
+    $('#preloader').fadeOut('slow', function(){ $(this).remove(); });
 });
-
 
 /******************************************************************************************************************************
 Learn More Page Scroll
@@ -12,67 +11,44 @@ $(function() {
         $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top
         }, 1500, 'easeInOutExpo');
-        // event.preventDefault();
     });
 });
 
 /******************************************************************************************************************************
 Menu
-*******************************************************************************************************************************/ 
+*******************************************************************************************************************************/
 (function() {
 
-	var bodyEl = document.body,
-		//content = document.querySelector( '.content-wrap' ),
-		openbtn = document.getElementById( 'open-button' ),
-		closebtn = document.getElementById( 'close-button' ),
-		isOpen = false;
+    var bodyEl = document.body,
+        openbtn = document.getElementById('open-button'),
+        closebtn = document.getElementById('close-button'),
+        isOpen = false;
 
-	// function init() {
-	// 	initEvents();
-	// }
-
-
-
-	function init() {
+    function init() {
         if (window.innerWidth <= 768) {
-            // Ensure menu is closed on mobile
-            classie.remove(bodyEl, 'show-menu');
+            // Ensure menu is closed on mobile when page loads
+            bodyEl.classList.remove('show-menu');
             isOpen = false;
         }
         initEvents();
     }
 
-	function initEvents() {
-		openbtn.addEventListener( 'click', toggleMenu );
-		classie.add( bodyEl, 'show-menu' )
-		isOpen = true;
-		if( closebtn ) {
-			closebtn.addEventListener( 'click', toggleMenu );
-		}
-		openbtn = document.getElementById( 'open-button' )
+    function initEvents() {
+        openbtn.addEventListener('click', toggleMenu);
+        if (closebtn) {
+            closebtn.addEventListener('click', toggleMenu);
+        }
+    }
 
-		/* close the menu element if the target it´s not the menu element or one of its descendants..
-		content.addEventListener( 'click', function(ev) {
-			var target = ev.target;
-			if( isOpen && target !== openbtn ) {
-				toggleMenu();
-			}
-		} );
-		*/
-	}
+    function toggleMenu() {
+        if (isOpen) {
+            bodyEl.classList.remove('show-menu');
+        } else {
+            bodyEl.classList.add('show-menu');
+        }
+        isOpen = !isOpen;
+    }
 
-	function toggleMenu() {
-		if( isOpen ) {
-			classie.remove( bodyEl, 'show-menu' );
-		}
-		else {
-			classie.add( bodyEl, 'show-menu' );
-		}
-		isOpen = !isOpen;
-	}
-
-	init();
+    init();
 
 })();
-
-
