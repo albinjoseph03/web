@@ -30,7 +30,12 @@ Menu
             bodyEl.classList.remove('show-menu');
             isOpen = false;
         }
+		else{
+			bodyEl.classList.add('show-menu');	
+			isOpen = false;
+		
         initEvents();
+		}
     }
 
     function initEvents() {
