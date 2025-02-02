@@ -27,9 +27,20 @@ Menu
 		closebtn = document.getElementById( 'close-button' ),
 		isOpen = false;
 
+	// function init() {
+	// 	initEvents();
+	// }
+
+
+
 	function init() {
-		initEvents();
-	}
+        if (window.innerWidth <= 768) {
+            // Ensure menu is closed on mobile
+            classie.remove(bodyEl, 'show-menu');
+            isOpen = false;
+        }
+        initEvents();
+    }
 
 	function initEvents() {
 		openbtn.addEventListener( 'click', toggleMenu );
