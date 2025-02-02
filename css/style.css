@@ -456,10 +456,16 @@ table {
 /* ==========================================================================Hero========================================================================== */
 .hero {
 	/* background: url('../img/HeaderImageAlbin.jpeg') right bottom no-repeat; */
+	position: relative;
+    z-index: 1;
 	background-size: contain;
 	padding:110px 0 100px 0;
 	height:auto;
 	background-color: #FBFBFB;
+}
+.hero .container {
+    position: relative;
+    z-index: 2;
 }
 .hero h1 {
 	font-size: 120px;
@@ -487,6 +493,16 @@ table {
 	letter-spacing:1px;
 	color:#fff;
 	font-size: 15px;
+}
+.hero .ai-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 50%, black 100%);
+    overflow: hidden;
+    z-index: 0;
 }
 /* Boucing Arrow Animation */
 @keyframes arrowbounce {
