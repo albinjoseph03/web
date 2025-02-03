@@ -30,13 +30,17 @@ Menu
             bodyEl.classList.remove('show-menu');
             isOpen = false;
         }
-
 		
+	
         initEvents();
 
     }
 
     function initEvents() {
+		if (!window.matchMedia("(max-width: 1024px)").matches) {
+			bodyEl.classList.add('show-menu');
+		}
+		
         openbtn.addEventListener('click', toggleMenu);
         if (closebtn) {
             closebtn.addEventListener('click', toggleMenu);
